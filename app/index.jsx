@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Message from './Message.js';
+import Inputs from './Inputs.js';
 
-class HelloMessage extends React.Component {
+export default class HelloMessage extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -27,15 +29,14 @@ class HelloMessage extends React.Component {
 
 
   render() {
-      var mess = this.state.messages.map(function(message, i){
-          return (<li key={i} className="message">{message.text}|{message.user}@{message.time}</li>);
-      });
-
       return (
-          <ul>{mess}</ul>
+        <div>
+          <Inputs />
+          <Message {...this.state} />
+        </div>
+
       );
   }
 }
-
 var mountPoint = document.querySelector('#root');
 ReactDOM.render(<HelloMessage/>, mountPoint);
