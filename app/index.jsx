@@ -7,6 +7,7 @@ export default class HelloMessage extends React.Component {
   constructor() {
     super();
     this.state = {
+      newItem: 'latori',
       messages: [
         {
             text : 'Hello World!',
@@ -23,7 +24,11 @@ export default class HelloMessage extends React.Component {
           time: '1:00 PM',
           user: 'User03'
         }
-      ]
+      ],
+//NOT SURE WHERE TO PLACE ADDMESSAGE()  + this.state.messages RETURN messages is NOT DEFINED IN THE FUNCTION
+      addMessage(inputText){
+        messages.push(inputText);
+     }
     }
   }
 
@@ -31,7 +36,7 @@ export default class HelloMessage extends React.Component {
   render() {
       return (
         <div>
-          <Inputs />
+          <Inputs {...this.state} />
           <Message {...this.state} />
         </div>
 
